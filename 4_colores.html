@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4_colores</title>
+</head>
+<body>
+    <div id="color1" style="width: 200px; height: 200px; background-color: blue; margin: 5px;"></div>
+    <div id="color2" style="width: 200px; height: 200px; background-color: red; margin: 5px;"></div>
+    <div id="color3" style="width: 200px; height: 200px; background-color: green; margin: 5px;"></div>
+    <div id="color4" style="width: 200px; height: 200px; background-color: yellow; margin: 5px;"></div> 
+
+    <div id="key" style="width: 200px; height: 200px; background-color: white; margin: 5px; border: 2px solid black;"></div> 
+    <div id="container"></div>
+
+    <script>
+        const col1 = document.getElementById("color1")
+        const col2 = document.getElementById("color2")
+        const col3 = document.getElementById("color3")
+        const col4 = document.getElementById("color4")
+        const col_key = document.getElementById("key")
+        color = ""
+        numberDiv = 5
+
+        col1.addEventListener("click", ()=> {col1.style.backgroundColor = "black"})
+        col2.addEventListener("click", ()=> {col2.style.backgroundColor = "black"})
+        col3.addEventListener("click", ()=> {col3.style.backgroundColor = "black"})
+        col4.addEventListener("click", ()=> {col4.style.backgroundColor = "black"})    
+
+        const agregaDiv = (color) => {
+            container = document.getElementById("container")
+            const elementoDiv = document.createElement("div")
+            numberDiv = numberDiv + 1
+            elementoDiv.id = "color" + numberDiv             
+            elementoDiv.style = `width: 200px; height: 200px; background-color: ${color}; margin: 5px;`
+            container.appendChild(elementoDiv)
+        }
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'a') {
+                 color = "pink"
+            } else if (event.key === 's') {
+                color = "orange"
+            } else if (event.key === 'd'){
+                color = "skyblue"
+            } else {
+                color = "white"
+            }
+            col_key.style.backgroundColor = color
+
+            if (event.key === 'q') {
+                agregaDiv("purple")
+            } else if (event.key === 'w') {
+                agregaDiv("gray")
+            } else if (event.key === 'e'){
+                agregaDiv("brown")
+            }
+})
+
+    </script>
+</body>
+</html>
